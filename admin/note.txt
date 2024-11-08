@@ -1,0 +1,91 @@
+  Create the database
+CREATE DATABASE staffmanagement;
+
+-- Use the database
+USE staffmanagement;
+
+-- Create the staff table
+CREATE TABLE staff (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    emailstaff VARCHAR(100) NOT NULL,
+    PASSWORD VARCHAR(255) NOT NULL,
+    phonenumber VARCHAR(15)
+);
+
+
+ -- Create the database
+CREATE DATABASE IF NOT EXISTS resident2;
+
+-- Use the resident2 database
+USE resident2;
+
+-- Create the appointments table
+CREATE TABLE IF NOT EXISTS appointments (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    resident_name VARCHAR(255) NOT NULL,
+    appointment_date DATE NOT NULL
+);
+
+CREATE DATABASE emergency;
+
+USE emergency;
+
+CREATE TABLE emergency_cases (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    resident_name VARCHAR(100) NOT NULL,
+    emergency_type VARCHAR(100) NOT NULL,
+    emergency_date DATETIME NOT NULL
+);
+
+CREATE DATABASE residentdata;
+USE residentdata;
+
+CREATE TABLE elderly_resident (
+    resident_id INT AUTO_INCREMENT PRIMARY KEY,
+    tarikh_daftar_masuk DATE,
+    nama_penghuni VARCHAR(100),
+    nokadpengenalan VARCHAR(20),
+    tarikhlahir DATE,
+    umur INT,
+    jantina ENUM('Male', 'Female', 'Other'),
+    kategori VARCHAR(50),
+    status VARCHAR(50),
+    alamat TEXT,
+    sejarah_penyakit TEXT,
+    jenis_ubatubatan TEXT,
+    keadaan_semasa TEXT,
+    jenis_alahan VARCHAR(100),
+    nyatakan_alahan TEXT,
+    tempat_rawatan_sebelum_kemasukkan VARCHAR(100),
+    nama_tempat_rawatan_sebelum_kemasukkan VARCHAR(100),
+    tempat_rawatan_selepas_kemasukkan VARCHAR(100),
+    nama_tempat_rawatan_selepas_kemasukkan VARCHAR(100),
+    lampin_pakai_buang BOOLEAN,
+    diet TEXT,
+    saringan_kesihatan_mental TEXT,
+    staff_bertugas VARCHAR(100),
+    nama_waris VARCHAR(100),
+    hubungan VARCHAR(50),
+    no_telefon VARCHAR(20),
+    alamat_waris TEXT
+);
+
+
+INSERT INTO emergency_cases (resident_name, emergency_type, emergency_date) 
+VALUES 
+('John Doe', 'Heart Attack', '2024-11-08 14:30:00'),
+('Jane Smith', 'Fall Injury', '2024-11-08 16:45:00'),
+('Aliya Rahman', 'Choking', '2024-11-08 18:00:00'),
+('Mohamad Ali', 'Stroke', '2024-11-09 08:15:00'),
+('Fatimah Zain', 'High Fever', '2024-11-09 10:00:00');
+
+INSERT INTO staff (username, emailstaff, PASSWORD, phonenumber) VALUES
+('muhdHakim89', 'hakim.muhd@example.com', 'Hakim@12345', '0171234567'),
+('nurAin22', 'ain.nur@example.com', 'Ain@password88', '0131234568'),
+('faizalAriff21', 'ariff.faizal@example.com', 'Ar!ff2023', '0128765432'),
+('syafiqRazak99', 'syafiq.razak@example.com', 'Sy@fiq789', '0189876543'),
+('sitiKhadijah77', 'siti.khadijah@example.com', 'Khadijah!77', '0165678901'),
+('zulfikar87', 'zul.fikar@example.com', 'Zul*F1kar87', '0192345678'),
+('nurlisaAli', 'lisa.nur@example.com', 'Nurlisa@7890', '0145678902'),
+('hafizHalim93', 'hafiz.halim@example.com', 'Haf!zH93$', '0172345679');
